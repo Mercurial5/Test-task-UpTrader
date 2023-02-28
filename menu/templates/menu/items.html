@@ -1,0 +1,14 @@
+{% if item %}
+    <h1>{{ item.name }}</h1>
+{% endif %}
+
+<p>{{ item.description }}</p>
+
+<div class="children" style="display: flex; flex-direction: column">
+    {% for child in children %}
+        <div>
+            <h4>{{ child }}</h4>
+            <a href="{% url 'index' item_id=child.id %}">Click me to see my children!</a>
+        </div>
+    {% endfor %}
+</div>
